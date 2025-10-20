@@ -20,12 +20,11 @@ public class LogoutInteractor implements LogoutInputBoundary {
         // * set the current username to null in the DAO
         // * instantiate the `LogoutOutputData`, which needs to contain the username.
         // * tell the presenter to prepare a success view.
+        String bruh = this.userDataAccessObject.getCurrentUsername();
+        this.userDataAccessObject.setCurrentUsername(null);
+        final LogoutOutputData logoutData = new LogoutOutputData(bruh);
 
-        final String username = userDataAccessObject.getCurrentUsername();
-        userDataAccessObject.setCurrentUsername(null);
-
-        final LogoutOutputData logoutOutputData = new LogoutOutputData(username);
-        logoutPresenter.prepareSuccessView(logoutOutputData);
+        this.logoutPresenter.prepareSuccessView(logoutData);
 
     }
 }
