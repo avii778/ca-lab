@@ -21,7 +21,7 @@ public class LogoutController {
     /**
      * Executes the Logout Use Case.
      */
-    public void execute(String username) {
+    public void execute() {
         this.logoutUseCaseInteractor.execute();
     }
 }
